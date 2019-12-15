@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent } from 'react'
 import { Platform, Text, View, FlatList, ActivityIndicator, ScrollView } from 'react-native'
 import Style from './MainScreenStyle'
 import Header from 'App/Assets/Images/header-background.svg';
@@ -15,6 +15,8 @@ import ScriptActions, { ScriptTypes } from 'App/Stores/Script/Actions'
 import {ScriptState} from 'App/Stores/Script/InitialState'
 import { AppState } from 'App/Stores'
 // *****
+
+
 
 /**
  * This is an example of a container component.
@@ -35,8 +37,6 @@ interface MainScreenBaseProps extends ScriptState {
 
 const MainScreenBase: FunctionComponent<MainScreenBaseProps> = ({scripts,removeScript}) => {
 
-
-  console.log(scripts, 'test');
   
   return (
     <View style={Style.container}>
