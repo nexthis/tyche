@@ -9,7 +9,8 @@ export const grantedSuccess = (state:BluetoothState,payload: any) => ({
 
 export const grantedFailure = (state:BluetoothState,payload: any) => ({
     ...state,
-    granted: payload.errorMessage,
+    granted: false,
+    grantedErrorMessage: payload.errorMessage,
 })
 
 export const connectSuccess = (state:BluetoothState,payload: any) => ({
@@ -19,7 +20,8 @@ export const connectSuccess = (state:BluetoothState,payload: any) => ({
 
 export const connectFailure = (state:BluetoothState,payload: any) => ({
     ...state,
-    connect: payload.errorMessage,
+    connect: false,
+    connectErrorMessage: payload.errorMessage,
 })
 
 export const reducer = createReducer(BLUETOOTH_INITIAL_STATE,{

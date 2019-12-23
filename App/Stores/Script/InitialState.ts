@@ -4,6 +4,10 @@ export interface ScriptState {
         title: string,
         code: string,
     }[];
+    selected?: { title: string, code: string} ,
+    fired?: number ,
+    isFired?: boolean,
+    firedError?: string 
 }
 
 export const SCRIPT_INITIAL_STATE: ScriptState = {

@@ -31,6 +31,7 @@ async function connect(){
     try{
         const device = await Bluetooth.connectToDevice(Config.DEVICE_ID);
         await device.discoverAllServicesAndCharacteristics();
+        
         connectedDevice = device;
         return device;
     }
@@ -40,7 +41,7 @@ async function connect(){
 }
 
 async function sendMessage(message:string){
-    connectedDevice.writeCharacteristicWithoutResponseForService(Config.SERVICE_UUID,Config.CHARACTERISTIC_UUID,Base64.base64EncodeUnicode(message) );
+   await connectedDevice.writeCharacteristicWithoutResponseForService(Config.SERVICE_UUID,Config.CHARACTERISTIC_UUID,Base64.base64EncodeUnicode(message) );
 }
 
 

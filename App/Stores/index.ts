@@ -3,6 +3,7 @@ import configureStore from './CreateStore'
 import rootSaga from 'App/Sagas'
 import { reducer as ExampleReducer } from './Example/Reducers'
 import { reducer as ScriptReducer } from './Script/Reducers'
+import { reducer as BluetoothReducer } from './Bluetooth/Reducers'
 
 const rootReducer = combineReducers({
   /**
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
    */
   example: ExampleReducer,
   script: ScriptReducer,
+  bluetooth: BluetoothReducer
 })
 
 export type AppState = ReturnType<typeof rootReducer>

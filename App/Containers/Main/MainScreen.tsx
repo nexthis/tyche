@@ -33,9 +33,10 @@ const instructions = Platform.select({
 interface MainScreenBaseProps extends ScriptState {
   addScript: typeof ScriptActions.allScript;
   removeScript: typeof ScriptActions.allScript;
+  connect: string | boolean
 }
 
-const MainScreenBase: FunctionComponent<MainScreenBaseProps> = ({scripts,removeScript}) => {
+const MainScreenBase: FunctionComponent<MainScreenBaseProps> = ({scripts,removeScript,connect}) => {
 
   
   return (
@@ -45,7 +46,7 @@ const MainScreenBase: FunctionComponent<MainScreenBaseProps> = ({scripts,removeS
         <View style={Style.header} >
           <Header style={Style.headerBackground} />
 
-          <HeaderButton color={Colors.success} text="Połączono" wave >
+          <HeaderButton color={ connect? Colors.success : Colors.error} text="Połączono" wave >
             <Icon name="bluetooth-audio" size={50} color={Colors.white} />
           </HeaderButton>
           <HeaderButton color={Colors.error} text="Tyche" >
@@ -73,7 +74,8 @@ const MainScreenBase: FunctionComponent<MainScreenBaseProps> = ({scripts,removeS
 }
 
 const mapStateToProps = (state: AppState): any =>({
-  scripts: state.script.scripts
+  scripts: state.script.scripts,
+  connect: state.bluetooth.connect,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
